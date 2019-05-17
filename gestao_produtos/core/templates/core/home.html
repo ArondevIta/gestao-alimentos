@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block main %}
+<div class="jumbotron text-center">
+  <h1>Gerenciador de Produtos</h1>
+  <p>Fazer o gerenciamento de seus produtos nunca foi tão fácil!</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h4>Cadastre produtos rapidamente</h4>
+      <img class="img-fluid" src="{% static 'img/cadastrar.jpg' %}" alt="Cadastrar">
+      <p>Faça cadastro dos seus produtos de forma rapida</p>
+    </div>
+    <div class="col-sm-4">
+      <h4>Gerencie seus produtos</h4>
+      <img class="img-fluid" src="{% static 'img/gerenciar.jpg' %}" alt="Gerenciar">
+      <p>Gerencie seus produtos com mais facilidade e precisão</p>
+    </div>
+    <div class="col-sm-4">
+      <h4>Transforme sua ideia</h4>
+      <img class="img-fluid" src="{% static 'img/transforme.jpg' %}" alt="Ideia">
+      <p>Transforme sua ideia em um negócio rapido e pratico.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5"></div>
+{% endblock %}
+
+
