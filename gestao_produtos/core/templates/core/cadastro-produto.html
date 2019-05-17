@@ -8,6 +8,7 @@
 <div class="col-md-4">
     <div class="card" style="width:400px">
       <div class="card-body">
+        <h5>Cadastro de produto</h5>
         <form action="{% url 'core_insert_product' %}" method="post">
             {% csrf_token %}
             {{ form|bootstrap }}
