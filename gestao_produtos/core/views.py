@@ -13,6 +13,7 @@ def insert_product(request):
 
     if form.is_valid():
         form.save()
+        msg = 'True'
         form = ProductForm()
-        return render(request, template_name, {'form': form})
+        return render(request, template_name, {'form': form, 'msg': msg})
     return render(request, template_name, {'form': form})
