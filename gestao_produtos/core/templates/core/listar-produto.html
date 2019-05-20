@@ -1,4 +1,6 @@
 {% extends "core/base.html" %}
+{% load static %}
+
 
 {% block main %}
 <div class="row mt-5">
@@ -13,6 +15,7 @@
                     <th>Quantidade</th>
                     <th>Peso</th>
                     <th>Preço</th>
+                    <th>Ação</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -22,7 +25,11 @@
                    <td>{{ products.amount }}</td>
                    <td>{{ products.weight }}</td>
                    <td>{{ products.price }}</td>
-
+                   <td><a href="{% url 'core_edit_product' products.id %}">
+                         <i class="far fa-edit" style="color: #C5C801;"></i>
+                       </a>
+                       <a href="#"><i class="fas fa-trash" style="color: red;"></i></a>
+                   </td>
                   </tr>
                 {% endfor %}
                 </tbody>
