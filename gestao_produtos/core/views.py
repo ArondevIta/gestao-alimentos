@@ -17,3 +17,9 @@ def insert_product(request):
         form = ProductForm()
         return render(request, template_name, {'form': form, 'msg': msg})
     return render(request, template_name, {'form': form})
+
+
+def list_product(request):
+    product = Product.objects.all()
+    template_name = 'core/listar-produto.html'
+    return render(request, template_name,  {'product': product})
