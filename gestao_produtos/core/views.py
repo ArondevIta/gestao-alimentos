@@ -39,3 +39,18 @@ def edit_product(request, id):
             form.save()
             return redirect('core_list_product')
     return render(request, template_name, data)
+
+
+def delete_product(request, id):
+    data = {}
+    template_name = 'core/delete_confirm.html'
+    product = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, instance=product)
+    data['product'] = product
+    data['form'] = form
+
+    if request.method == 'POST':
+        product.delete()
+        return redirect('core_list_product')
+    else:
+        return render(request, template_name, {'obj': product})

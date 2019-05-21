@@ -28,7 +28,7 @@
                    <td><a href="{% url 'core_edit_product' products.id %}">
                          <i class="far fa-edit" style="color: #C5C801;"></i>
                        </a>
-                       <a href="#"><i class="fas fa-trash" style="color: red;"></i></a>
+                       <a href="{% url 'core_delete_product' products.id %}"><i class="fas fa-trash" style="color: red;"></i></a>
                    </td>
                   </tr>
                 {% endfor %}
