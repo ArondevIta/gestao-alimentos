@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}
+{% load bootstrap %}
+{% block main %}
+
+{% if form.errors %}
+
+<div class="row mt-5">
+    <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card" style="width:400px">
+              <div class="card-body">
+                <p class="text-danger">Usuario ou senha invalidos</p>
+                {% if msg == "True" %}
+                  <p style="color: green;">Cadastro efetuado com sucesso!</p>
+                {% endif %}
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button class="btn btn-primary col-3">Entrar</button>
+                    <a class="ml-3" href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
+                </form>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+</div>
+<div class="row mt-5"></div>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Sua conta não tem permissão para acessar esta página</p>
+    {% else %}
+        <div class="row mt-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card" style="width:400px">
+              <div class="card-body">
+                <p>Por favor efetue o login para acessar esta pagina</p>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button class="btn btn-primary col-3">Entrar</button>
+                    <a class="ml-3" href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
+                </form>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        </div>
+        <div class="row mt-5"></div>
+    {% endif %}
+{% endif %}
+
+{% endblock %}
