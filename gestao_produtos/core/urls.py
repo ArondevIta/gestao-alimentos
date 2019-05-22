@@ -3,6 +3,7 @@ from .views import home, insert_product, list_product, edit_product, delete_prod
 
 urlpatterns = [
     path('', home, name='core_home'),
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('index', index, name='core_index'),
     path('cadastrar-produto', insert_product, name='core_insert_product'),

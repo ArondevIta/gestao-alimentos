@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="row mt-5">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <div class="card" style="width:400px">
+      <div class="card-body">
+        <h5>Cadastro de Usuario</h5>
+        <form method="POST">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+</div>
+<div class="col-md-4"></div>
+</div>
+<div class="row mt-5"></div>
+
+{% endblock %}
