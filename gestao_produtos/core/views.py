@@ -3,6 +3,7 @@ from .models import Product
 from .form import ProductForm
 from django.contrib.auth.decorators import login_required
 
+
 def home(request):
     template_name = 'core/home.html'
     return render(request, template_name)
@@ -64,3 +65,8 @@ def delete_product(request, id):
         return redirect('core_list_product')
     else:
         return render(request, template_name, {'obj': product})
+
+
+def about(request):
+    template_name = 'core/sobre.html'
+    return render(request, template_name)
